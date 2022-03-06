@@ -1,0 +1,26 @@
+<% if @article.errors.any? %>
+  <h2>The following errors prevented the article from being saved</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<div class="container">
+  <%= form_with(model: @article, local: true) do |form| %>
+    <div class="field">
+      <%= form.label :title %> <br/>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %><br/>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit :class => 'btn btn-primary' %>
+    </div>
+  <% end %>
