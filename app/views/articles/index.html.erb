@@ -13,6 +13,7 @@
     <tr>
      <td><%= article.title %></td>
      <td><%= article.description %></td>
+     <td>Author: <%= article.user.username %></td>
      <td>
        <%= link_to 'Show', article %> 
        <%= link_to 'Edit', edit_article_path(article) %>

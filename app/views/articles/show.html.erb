@@ -7,6 +7,9 @@
 <p>
   <%= @article.description %>
 </p>
+<p>
+  <%= @article.user.username %>
+</p>
 
 <%= link_to 'Articles', articles_path %>
 <%= link_to 'New Article', new_article_path %>
