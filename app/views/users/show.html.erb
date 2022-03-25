@@ -11,37 +11,7 @@
             </div>
         </div>
     </div>
-  <!--User articles-->
-  <% @articles.each do |article| %>
-  <div class="row d-flex justify-content-center mt-3 mb-3">
-      <div class="col-lg-6">
-        <div class="card">
-            
-            <div class="comment-widgets">
-            
-                <!-- Article Row -->
-                <div class="d-flex flex-row comment-row mb-3 mb-3">
-                    <div class="p-2"><%= gravatar_for(@user, size: 100, class: "rounded-circle") %></div>
-                    <div class="comment-text w-3">
-                        <h6 class="font-medium mt-3">By <%= @user.username %></h6> 
-                        <span class="m-b-15 d-block text-success"><%= article.title %></span>
-                        <p class="text-muted"><%= article.description %> </p>
-                        <p class="text-muted">Created: <%= time_ago_in_words(article.created_at) %> ago Edited: <%= time_ago_in_words(article.updated_at) %> ago</p>
-                        <div class="comment-footer"></span> 
-                          <%= link_to "View", article, :class => 'btn btn-primary btn-sm' %>
-                          <%= link_to "Edit", edit_article_path(article), :class => "btn btn-secondary btn-sm" %>
-                          <%= link_to 'Delete', article_path(article), :class => 'btn btn-danger btn-sm', method: :delete, data: {confirm: "Delete this article?"} %>
-                        </div>
-                    </div>
-                </div> 
-                <!--End Article Row -->
-            
-                 
-            </div> <!-- Card -->
-        </div>
-      </div>
-  </div>
-  <% end %>
-  <!--End user articles-->
+
+  <%= render 'articles/article' %>
   
 </div>

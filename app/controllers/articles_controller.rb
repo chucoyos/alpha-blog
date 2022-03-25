@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
 
 	def index
 		@articles = Article.all
+		@user = User.first
 	end
 
 	def new

@@ -1,28 +1,5 @@
 <h1 class="m-3 text-center">Articles</h1>
-<table>
- <thead>
-   <tr>
-     <th>Title</th>
-     <th>Description</th>
-     <th>Actions</th>
-   </tr>
- </thead>
-
- <tbody>
-   <% @articles.each do |article| %>
-    <tr>
-     <td><%= article.title %></td>
-     <td><%= article.description %></td>
-     <td>Author: <%= article.user.username %></td>
-     <td>
-       <%= link_to 'Show', article %> 
-       <%= link_to 'Edit', edit_article_path(article) %>
-       <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Delete this article?"} %>
-     </td>
-    </tr>
-   <% end %>
- </tbody>
-</table>
+<%= render 'article' %>
 
 <%= link_to 'New Article', new_article_path, :class => 'btn btn-primary' %>
 <%= link_to 'Sign Up', signup_path, :class => 'btn btn-primary' %>
