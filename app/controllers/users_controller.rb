@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :set_user, only: %i[edit update show]
+	before_action :set_user
 
 	def new
 		@user = User.new
@@ -16,7 +16,6 @@ class UsersController < ApplicationController
 
 	def show
 		@articles = @user.articles
-		@article = @user.articles.first
 	end
 
 	def edit; end
