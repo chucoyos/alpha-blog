@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="m-3 text-center">Articles</h1>
+  <h1 class="m-3 text-center"><%= pluralize(@user.articles.count, "articles" %></h1>
 
 <div class="flickr_pagination">
     <div class="page_info">
@@ -16,7 +16,7 @@
     </div>
     <%= will_paginate @articles, :container => false %>
   </div>
-  
+
   <%= link_to 'New Article', new_article_path, :class => 'btn btn-primary' %>
   <%= link_to 'Sign Up', signup_path, :class => 'btn btn-primary' %>
 </div>
