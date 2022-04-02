@@ -8,19 +8,23 @@
 <% end %>
 
 
-<div class="container">
-  <%= form_with(model: @article, local: true) do |form| %>
-    <div class="field">
-      <%= form.label :title %> <br/>
-      <%= form.text_field :title %>
-    </div>
+<div class="form">
+  <div class="form-group">
+    <%= form_with(model: @article, local: true) do |form| %>
+      <div class="field">
+        <%= form.label :title %> <br/>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
 
-    <div class="field">
-      <%= form.label :description %><br/>
-      <%= form.text_area :description %>
-    </div>
+      <div class="field">
+        <%= form.label :description %><br/>
+        <%= form.text_area :description, class: "form-control" %>
+      </div>
 
-    <div class="actions">
-      <%= form.submit :class => 'btn btn-primary' %>
-    </div>
-  <% end %>
+      <div class="actions">
+        <%= form.submit :class => 'btn btn-primary' %>
+        <%= link_to 'Cancel', articles_path, class: "btn btn-secondary" %>
+      </div>
+      <% end %>
+  </div>
+</div>
