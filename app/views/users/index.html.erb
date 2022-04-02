@@ -1,5 +1,21 @@
 <div class="container">
+
+  <div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @users %>
+    </div>
+    <%= will_paginate @users, :container => false %>
+  </div>
+
   <% @users.each do |user| %>
     <%= render partial: 'user', locals: { user: user } %>
   <% end %>
+
+  <div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @users %>
+    </div>
+    <%= will_paginate @users, :container => false %>
+  </div>
+  
 </div>
