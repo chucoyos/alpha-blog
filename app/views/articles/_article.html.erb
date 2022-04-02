@@ -1,5 +1,5 @@
 <!--User articles-->
-<% if @user %>
+
   <% @articles.each do |article| %>
   <div class="row d-flex justify-content-center mt-3 mb-3">
       <div class="col-lg-6">
@@ -9,7 +9,7 @@
             
                 <!-- Article Row -->
                 <div class="d-flex flex-row comment-row mb-3 mb-3">
-                    <div class="p-2"><%= gravatar_for(@user, size: 100, class: "rounded-circle") %></div>
+                    <div class="p-2"><%= gravatar_for(article.user, size: 100, class: "rounded-circle") %></div>
                     <div class="comment-text w-3">
                         <h6 class="font-medium mt-3">By <%= article.user.username if article.user %></h6> 
                         <span class="m-b-15 d-block text-success"><%= article.title %></span>
@@ -30,5 +30,5 @@
       </div>
   </div>
   <% end %>
-<% end %>
+  
   <!--End user articles-->
