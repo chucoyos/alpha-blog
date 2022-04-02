@@ -1,23 +1,19 @@
 <div class="container mt-5">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-7">
-            <div class="card p-3 py-4">
-                <div class="text-center"> <%= gravatar_for(@user, size: 100, class: "rounded-circle") %> </div>
-                <div class="text-center mt-3"> <span class="bg-secondary p-1 px-4 rounded text-white">Pro</span>
-                    <h5 class="mt-2 mb-0">Alexender Schidmt</h5> <span>UI/UX Designer</span>
-                    <div class="px-4 mt-1">
-                        <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                    </div>
-                    <ul class="social-list">
-                        <li><i class="fa fa-facebook"></i></li>
-                        <li><i class="fa fa-dribbble"></i></li>
-                        <li><i class="fa fa-instagram"></i></li>
-                        <li><i class="fa fa-linkedin"></i></li>
-                        <li><i class="fa fa-google"></i></li>
-                    </ul>
-                    <div class="buttons"> <button class="btn btn-outline-primary px-4">Message</button> <button class="btn btn-primary px-4 ms-3">Contact</button> </div>
+    <div class="card profile-header">
+        <div class="body mt-3">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="profile-image float-md-right"> <%= gravatar_for(@user, size: 100, class: "rounded-circle m-3") %> </div>
                 </div>
-            </div>
+                <div class="col-lg-8 col-md-8 col-12">
+                    <h4 class="m-t-0 m-b-0"><strong><%= @user.username %></strong></h4>
+                    <span class="job_post"><%= @user.email %></span>
+                    <p><%= @user.articles.count %> Articles</p>
+                    <div class="mb-3">
+                        <%= link_to "View Profile", user_path(@user), class: "btn btn-primary btn-round" %>
+                        <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary btn-round btn-simple" %>
+                    </div>
+                </div>                
         </div>
     </div>
 </div>
