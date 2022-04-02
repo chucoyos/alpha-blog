@@ -3,8 +3,8 @@
     <div class="row d-flex justify-content-center mb-3">
         <div class="col-md-7">
             <div class="card p-3 py-4">
-                <div class="text-center"> <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" class="rounded-circle"> </div>
-                <div class="text-center mt-3"> <span class="bg-secondary p-1 px-4 rounded text-white">Pro</span>
+                <div class="text-center"> <%= gravatar_for(@user, size: 100, class: "rounded-circle m-3") %> </div>
+                <div class="text-center mt-3"> <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-small btn-primary" %>
                     <h5 class="mt-2 mb-0"><%= @user.username %></h5>
                     <h5 class="mt-2 mb-0">Latest Articles</h5>
                 </div>
