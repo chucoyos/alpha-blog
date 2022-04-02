@@ -1,7 +1,22 @@
 <div class="container">
   <h1 class="m-3 text-center">Articles</h1>
-  <%= render 'article' %>
 
+<div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles, :container => false %>
+  </div>
+  
+ <%= render 'article' %>
+
+ <div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles, :container => false %>
+  </div>
+  
   <%= link_to 'New Article', new_article_path, :class => 'btn btn-primary' %>
   <%= link_to 'Sign Up', signup_path, :class => 'btn btn-primary' %>
 </div>
