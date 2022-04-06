@@ -8,7 +8,7 @@
                 <div class="col-lg-8 col-md-8 col-12">
                     <h4 class="m-t-0 m-b-0"><strong><%= user.username %></strong></h4>
                     <span class="job_post"><%= user.email %></span>
-                    <p><%= user.articles.count %> Articles</p>
+                    <p><%= pluralize(user.articles.count, "article") %></p>
                     <div class="mb-3">
                         <%= link_to "View Profile", user_path(user), class: "btn btn-primary btn-round" %>
                         <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-primary btn-round btn-simple" %>
