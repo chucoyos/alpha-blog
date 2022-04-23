@@ -11,7 +11,9 @@
                     <p><%= pluralize(user.articles.count, "article") %></p>
                     <div class="mb-3">
                         <%= link_to "View Profile", user_path(user), class: "btn btn-primary btn-round" %>
-                        <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-primary btn-round btn-simple" %>
+                        <% if current_user == user %>
+                          <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-primary btn-round btn-simple" %>
+                        <% end %>
                     </div>
                 </div>                
         </div>

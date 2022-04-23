@@ -4,7 +4,10 @@
         <div class="col-md-7">
             <div class="card p-3 py-4">
                 <div class="text-center"> <%= gravatar_for(@user, size: 100, class: "rounded-circle m-3") %> </div>
-                <div class="text-center mt-3"> <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-small btn-primary" %>
+                <div class="text-center mt-3">
+                  <% if logged_in? && current_user == @user %>
+                    <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-small btn-primary" %>
+                  <% end %>
                     <h5 class="mt-2 mb-0"><%= @user.username %></h5>
                     <h5 class="mt-2 mb-0">Latest Articles</h5>
                 </div>
