@@ -35,6 +35,12 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def destroy
+		@user.destroy
+		session[:user_id] = nil if @user == current_user
+		redirect_to root_path, notice: 'Account and all associated articles successfully deleted'
+	end
+
 	private
 
 	def user_params

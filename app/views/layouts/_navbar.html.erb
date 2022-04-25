@@ -45,11 +45,18 @@
                   <%= link_to "Edit Profile", edit_user_path(current_user), :class => "dropdown-item" %>
                 </li>
 
+                <li><hr class="dropdown-divider"></li>
+
+                <li class="nav-item">
+                  <%= link_to "Delete my account", user_path(current_user), method: :delete, data: { confirm: "Your account and all asociated articles will be destroyed, Are you sure?" }, :class => "dropdown-item" %>
+                </li>
+
               </ul>
 
               <li class="nav-item">
                 <%= link_to "Logout", logout_path, method: :delete, :class => "nav-link" %>
-              </li>0
+              </li>
+
           <% else %>
                 
                 <li><hr class="dropdown-divider"></li>
