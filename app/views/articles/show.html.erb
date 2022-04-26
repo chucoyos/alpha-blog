@@ -15,7 +15,7 @@
                         <p class="text-muted">Created: <%= time_ago_in_words(@article.created_at) %> ago Edited: <%= time_ago_in_words(@article.updated_at) %> ago</p>
                         <div class="comment-footer"></span> 
                           <%= link_to "Back to articles listing", articles_path, :class => 'btn btn-primary btn-sm' %>
-                          <% if logged_in? && current_user == @article.user %>
+                          <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
                             <%= link_to "Edit", edit_article_path(@article), :class => "btn btn-secondary btn-sm" %>
                             <%= link_to 'Delete', article_path(@article), :class => 'btn btn-danger btn-sm', method: :delete, data: {confirm: "Delete this @article?"} %>
                           <% end %>
