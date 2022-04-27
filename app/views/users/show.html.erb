@@ -5,7 +5,7 @@
             <div class="card p-3 py-4">
                 <div class="text-center"> <%= gravatar_for(@user, size: 100, class: "rounded-circle m-3") %> </div>
                 <div class="text-center mt-3">
-                  <% if logged_in? && current_user == @user %>
+                  <% if logged_in? && (current_user == @user) || (current_user.admin?) %>
                     <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-small btn-primary" %>
                     <%= link_to "Delete Profile", user_path(@user), method: :delete, data: { confirm: "Your account and all asociated articles will be destroyed, Are you sure?" }, class: "btn btn-small btn-danger" %>
                   <% end %>

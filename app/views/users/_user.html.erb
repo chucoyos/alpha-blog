@@ -11,8 +11,13 @@
                     <p><%= pluralize(user.articles.count, "article") %></p>
                     <div class="mb-3">
                         <%= link_to "View Profile", user_path(user), class: "btn btn-primary btn-round" %>
-                        <% if current_user == user %>
-                          <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-primary btn-round btn-simple" %>
+                        <% if logged_in? %>
+                          <% if current_user == user %>
+                            <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-primary btn-round btn-simple" %>
+                          <% end %>
+                          <% if current_user.admin? %>
+                            <%= link_to "Delete Profile", user_path(user), method: :delete, data: { confirm: "Your account and all asociated articles will be destroyed, Are you sure?" }, class: "btn btn-danger btn-round btn-simple" %>
+                          <% end %>
                         <% end %>
                     </div>
                 </div>                

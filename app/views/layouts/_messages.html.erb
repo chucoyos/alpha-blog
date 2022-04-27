@@ -1,5 +1,18 @@
 <% flash.each do |name, msg| %>
-    <div class="alert alert-info mt-4">
-      <%= msg %>
-    </div>
+    <% if name == 'notice' %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <%= msg %>
+        </div>
+    <% elsif name == 'alert' %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <%= msg %>
+        </div>
+      <% elsif name == 'error' %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <%= msg %>
+        </div>
+    <% end %>
 <% end %>

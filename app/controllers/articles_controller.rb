@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
 		@article = Article.new(article_params)
 		@article.user = current_user
 		if @article.save
-			flash[:success] = 'Article has been created successfully'
+			flash[:notice] = 'Article has been created successfully'
 			redirect_to @article
 		else
 			render 'new'
@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
 
 	def require_same_user
 		if current_user != @article.user && !current_user.admin?
-			flash[:danger] = 'You can only edit or delete your own articles'
+			flash[:error] = 'You can only edit or delete your own articles'
 			redirect_to @article
 		end
 	end
