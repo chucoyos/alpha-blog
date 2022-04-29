@@ -1,2 +1,70 @@
 <h1 class='text-center mt-4'>Sign Up</h1>
-<%= render 'form' %>
+<% if @user.errors.any? %>
+  <h2>The following errors prevented the <%= @user.class.name.downcase %> from being saved</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="section">
+  <div class="container">
+    <div class="row full-height justify-content-center">
+      <div class="col-12 text-center align-self-center py-5">
+        <div class="section pb-5 pt-5 pt-sm-2 text-center">
+          <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+                <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+                <label for="reg-log"></label>
+          <div class="card-3d-wrap mx-auto">
+            <div class="card-3d-wrapper">
+
+                  <div class="card-front">
+                    <div class="center-wrap">
+                      <div class="section text-center">
+                        <h4 class="mb-4 pb-3">Log In</h4>
+                    <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+                        <div class="form-group">
+                          <%= f.email_field :email, :placeholder => 'Your Email', :class => 'form-style', :id => 'logemail' %>
+                          <i class="input-icon uil uil-at"></i>
+                        </div>	
+                        <div class="form-group mt-2">
+                          <%= f.password_field :password, :placeholder => 'Your Password', :class => 'form-style', :id => 'logpass', :autocomplete => 'off' %>
+                          <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <%= f.submit :class => 'btn mt-4' %>
+                    <% end %>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class="card-back">
+                    <div class="center-wrap">
+                      <div class="section text-center">
+                        <h4 class="mb-4 pb-3">Sign Up</h4>
+                      <%= form_with(model: @user, local: true) do |f| %>
+                        <div class="form-group">
+                          <%= f.text_field :username, :placeholder => 'Your Username', :class => 'form-style' %>
+                          <i class="input-icon uil uil-user"></i>
+                        </div>	
+                        <div class="form-group mt-2">
+                          <%= f.email_field :email, :placeholder => 'Your Email', :class => 'form-style' %>
+                          <i class="input-icon uil uil-at"></i>
+                        </div>	
+                        <div class="form-group mt-2">
+                          <%= f.password_field :password, :placeholder => 'Select a Password', :class => 'form-style', :autocomplete => 'off' %>
+                          <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <%= f.submit :class => 'btn mt-4' %>
+                      <% end %>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
