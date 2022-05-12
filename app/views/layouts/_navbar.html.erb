@@ -54,7 +54,7 @@
               </ul>
 
               <li class="nav-item">
-                <%= link_to "Logout", logout_path, method: :delete, :class => "nav-link" %>
+                <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Do want to leave?" }, :class => "nav-link" %>
               </li>
 
           <% else %>
