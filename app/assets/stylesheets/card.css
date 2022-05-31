@@ -76,3 +76,7 @@ body {
 	color: #fff;
 	height: 40px;
 }
+
+.text-decoration-none {
+	text-decoration: none;
+}
