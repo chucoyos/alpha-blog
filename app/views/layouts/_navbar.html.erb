@@ -28,6 +28,26 @@
           </ul>
         </li>
 
+          <%# Categories DropDown %>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categories
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if logged_in? && current_user.admin? %>
+              <li>
+                <%= link_to "Create new Category", new_category_path, :class => "dropdown-item" %>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+            <% end %>
+            <li>
+              <%= link_to "View Categories", categories_path, :class => "dropdown-item" %>
+            </li>
+
+          </ul>
+        </li> <%# End Categories DropDown %>
+
         <li class="nav-item dropdown">
           <% if logged_in? %>
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,7 +93,6 @@
             
             
         </li>
-
         
 
       </ul>
