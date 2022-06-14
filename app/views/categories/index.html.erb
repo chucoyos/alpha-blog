@@ -14,6 +14,7 @@
           <div class="card mb-3 col-6">
                 <div class="card-body">
                   <h5 class="card-title text-center"><%= link_to category.name, category_path(category), class: 'text-decoration-none link-success' %></h5>
+                  <H5 class="text-center text-dark"><%= pluralize(category.articles.count, 'article') %></H5>
                 </div>
                 <div class="card-footer text-muted">
                   <small>
